@@ -1,0 +1,68 @@
+故事连接关系图 - 简化版
+============================
+自动生成时间: 2025-09-21 21:13:59
+
+场景连接列表：
+=============
+
+start → approach, observe, distance
+approach → ask_help, do_it_on_your_own, hesitate
+observe → patient_wait, create_encounter, losing_control
+distance → ambiguous_relationship
+ask_help → ending_confession
+do_it_on_your_own → patient_wait, sudden_question
+hesitate → awkward_explanation, awkward_humor
+awkward_humor → persistent_approach, sudden_question
+sudden_question → continue_asking
+continue_asking → direct_question
+direct_question → reflect_on_rejection, give_space
+reflect_on_rejection → accept_reality, patient_wait
+give_space → focus_on_self, silent_care
+accept_reality → (无后续)
+focus_on_self → (无后续)
+silent_care → (无后续)
+persistent_approach → patient_wait, create_encounter_after_misunderstanding
+create_encounter_after_misunderstanding → ending_serendipity_after_misunderstanding
+ending_serendipity_after_misunderstanding → (无后续)
+patient_wait → ending_waiting
+create_encounter → ending_serendipity
+losing_control → ending_too_late
+ambiguous_relationship → ending_moon_insight
+awkward_explanation → ending_mockery
+ending_confession → (无后续)
+ending_serendipity → (无后续)
+ending_waiting → (无后续)
+ending_too_late → (无后续)
+ending_moon_insight → (无后续)
+ending_mockery → (无后续)
+
+结局场景（无后续连接）：
+======================
+- accept_reality
+- focus_on_self
+- silent_care
+- ending_serendipity_after_misunderstanding
+- ending_confession
+- ending_serendipity
+- ending_waiting
+- ending_too_late
+- ending_moon_insight
+- ending_mockery
+
+断开的连接：
+===========
+✅ 无断开连接 - 所有连接都正常！
+
+孤立场景：
+==========
+✅ 无孤立场景 - 所有场景都被正确引用
+
+场景引用统计：
+=============
+被引用次数最多的场景：
+- patient_wait: 4次 (observe, do_it_on_your_own, reflect_on_rejection, persistent_approach)
+
+总统计：
+- 被引用1次的场景：27个
+- 被引用多次的场景：2个
+- 从未被引用的场景：0个

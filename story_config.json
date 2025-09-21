@@ -1,0 +1,338 @@
+{
+  "gameTitle": "瓶子攻略女同学的不归路",
+  "gameSubtitle": "对面：什么？没通知我啊",
+  "characters": {
+    "protagonist": {
+      "name": "主角（你）",
+      "description": "短发的瘦弱内向女孩子，总是安静地坐在角落，喜欢观察周围的一切。虽然内向，但内心丰富敏感，对喜欢的人会默默关注每一个细节。",
+      "appearance": "短发，瘦弱身材，常常低着头，眼神温柔而略显怯懦",
+      "personality": "内向、敏感、细腻、容易胡思乱想，但很真诚"
+    },
+    "love_interest": {
+      "name": "她",
+      "description": "长发活泼外向的女孩子，总是笑容满面，和谁都能聊得来。她的存在就像阳光一样温暖明亮，不自觉地吸引着周围的人。",
+      "appearance": "长发飘逸，笑容灿烂，举手投足都充满活力",
+      "personality": "活泼、外向、善良、天真，对所有人都很友好"
+    }
+  },
+  "achievements": {
+    "我喜欢你": {
+      "id": "confession",
+      "name": "勇敢告白",
+      "description": "勇敢说出了心中的话",
+      "icon": "💕"
+    },
+    "守株待兔": {
+      "id": "serendipity", 
+      "name": "命运邂逅",
+      "description": "在偶然中找到了美好的瞬间",
+      "icon": "🌸"
+    },
+    "等待": {
+      "id": "patient_love",
+      "name": "深情守望", 
+      "description": "用耐心诠释了深情",
+      "icon": "⏰"
+    },
+    "为时已晚": {
+      "id": "too_late",
+      "name": "情感觉醒",
+      "description": "在失控中认识了真实的自己", 
+      "icon": "💔"
+    },
+    "不独照": {
+      "id": "moon_insight",
+      "name": "明月高悬",
+      "description": "获得了清醒的认知和成长",
+      "icon": "🌙"
+    },
+    "厌恶": {
+      "id": "mockery_pain",
+      "name": "嘲笑与痛苦",
+      "description": "经历了被误解的痛苦",
+      "icon": "😔"
+    },
+    "勇敢面对": {
+      "id": "brave_facing",
+      "name": "勇敢面对",
+      "description": "即使被拒绝也勇敢面对现实",
+      "icon": "💪"
+    },
+    "自我成长": {
+      "id": "self_growth", 
+      "name": "自我成长",
+      "description": "在失败中学会成长和自我提升",
+      "icon": "🌱"
+    },
+    "默默关怀": {
+      "id": "silent_care",
+      "name": "默默关怀", 
+      "description": "学会了不占有的纯粹关怀",
+      "icon": "💝"
+    },
+    "completionist": {
+      "id": "completionist",
+      "name": "完美主义者", 
+      "description": "体验了所有可能的故事线",
+      "icon": "🎭"
+    }
+  },
+  "scenes": {
+    "start": {
+      "text": "你在学校里遇见了一个让你心动的人。每天看到TA，心中都会涌起特别的感觉。今天，你们又在同一个地方相遇了...",
+      "image": "img/init.png",
+      "imagePrompt": "校园场景，图书馆或教室，一个内向的学生远远地看着另一个人，阳光透过窗户洒进来，青春校园氛围，温暖的光线，漫画风格",
+      "choices": [
+        { "text": "寻找机会主动接近TA", "next": "approach" },
+        { "text": "默默观察，等待合适的时机", "next": "observe" },
+        { "text": "保持距离，享受这种朦胧的感觉", "next": "distance" }
+      ]
+    },
+    
+    "approach": {
+      "text": "经过几次接触，你们变得熟悉了一些。今天你遇到了数学难题，要不要向她求助呢",
+      "image": "img/math.png",
+      "imagePrompt": "教室场景，一个学生在解数学题，另一个学生在旁边观察，桌上散落着纸笔，温暖的午后阳光，青春校园风格",
+      "choices": [
+        { "text": "走上前询问她", "next": "ask_help" },
+        { "text": "自己解决", "next": "do_it_on_your_own" },
+        { "text": "想问但害怕被拒绝，犹豫不决", "next": "hesitate" }
+      ]
+    },
+    
+    "observe": {
+      "text": "你选择了观察和等待。日子一天天过去，你对TA的感情越来越深，但内心也越来越煎熬...",
+      "imagePrompt": "一个学生独自坐在窗边，望向远方，表情深沉而纠结，日历翻过了好多页，时光流逝的感觉，温柔的光线",
+      "choices": [
+        { "text": "继续耐心等待TA的信号", "next": "patient_wait" },
+        { "text": "制造偶然相遇的机会", "next": "create_encounter" },
+        { "text": "情感压抑到快要失控了", "next": "losing_control" }
+      ]
+    },
+    
+    "distance": {
+      "text": "你选择保持距离，享受这种朦胧的美好感觉。你开始主动找机会和TA聊天，发一些暧昧的信息...",
+      "image": "img/night.png",
+      "imagePrompt": "手机聊天界面，一个人在深夜给对方发信息，屏幕光照亮脸庞，卧室环境，温柔的夜晚氛围，暧昧的情感",
+      "choices": [
+        { "text": "继续这种暧昧的状态", "next": "ambiguous_relationship" }
+      ]
+    },
+    
+    "ask_help": {
+      "text": "【我算不出答案】你把纸笔一放。她示意你让让，走过来俯下身面对稿纸开始计算。很快，她把答案递到你眼前，脸上露出了得意的神情。\n\n\"哇！\"你由衷赞叹，心脏莫名狂跳，想要自然地、自然地、自然地说出那句话，尽可能轻浮得像网络上的段子……",
+      "image": "img/math.png",
+      "imagePrompt": "两个学生面对面坐着，一个在讲解题目，另一个露出惊喜的表情，数学作业本摆在桌上，紧张而美好的氛围，青春校园风格",
+      "choices": [
+        { "text": "说出那四个字", "next": "ending_confession" }
+      ]
+    },
+    
+    "do_it_on_your_own": {
+      "text": "你不愿意依赖任何人。但是长久的暗恋折磨着你的心，你偷偷观察她跟别人互动时的欢声笑语，嫉妒浮上心头，你选择",
+      "image": "img/math.png",
+      "imagePrompt": "两个人作为朋友一起学习，但其中一个人的表情显示内心的纠结和压抑，温馨的朋友氛围下隐藏着复杂的情感",
+      "choices": [
+        { "text": "继续压抑自己的感情", "next": "patient_wait" },
+        { "text": "主动出击找她说话", "next": "sudden_question" }
+      ]
+    },
+    
+    "hesitate": {
+      "text": "你想要寻求帮助，但害怕被拒绝。这种犹豫让你显得奇怪，TA注意到了你的异常...",
+      "imagePrompt": "一个人站在远处犹豫不决，另一个人疑惑地回头看，教室环境，尴尬的氛围，内心纠结的表现",
+      "image": "img/math.png",
+      "choices": [
+        { "text": "解释自己的行为", "next": "awkward_explanation" },
+        { "text": "试图用幽默化解尴尬", "next": "awkward_humor" }
+      ]
+    },
+    
+    "awkward_humor": {
+      "text": "为了化解尴尬，她说：\"我最喜欢的就是班里呆呆的不说话的人。\" 你看起来很冷酷，像冰块一样。她又补充：\"想去融化。\" ",
+      "imagePrompt": "两个学生面对面，一个人在说话但表情紧张，另一个人露出困惑和不解的表情，教室背景，尴尬的氛围",
+      "image": "img/math.png",
+      "choices": [
+        { "text": "你觉得有点害羞，所以你走开了", "next": "persistent_approach" },
+        { "text": "你以为她意识到了你喜欢她，你开口冷不丁说出一句话", "next": "sudden_question" }
+      ]
+    },
+
+    "sudden_question": {
+      "text": "你冷不丁说了：\"要做吗？\" 她以为你在开玩笑，不知道要做什么，笑着说：\"好啊。\" 气氛突然变得有些微妙...",
+      "imagePrompt": "两个学生面对面站着，一个人刚说完话表情紧张，另一个人笑着但有些困惑，校园背景，微妙的氛围",
+      "image": "img/math.png",
+      "choices": [
+        { "text": "继续追问", "next": "continue_asking" }
+      ]
+    },
+
+    "continue_asking": {
+      "text": "你继续追问：\"周日下午两点校门口见，我独居。\" 对面的笑容凝固了，她意识到你不是在开玩笑。空气中弥漫着尴尬的气息...",
+      "imagePrompt": "校园场景，一个学生表情认真地说话，另一个学生的笑容逐渐消失，表情变得惊讶和不知所措，紧张的氛围",
+      "image": "img/ending_like.png",
+      "choices": [
+        { "text": "直接询问她的想法", "next": "direct_question" }
+      ]
+    },
+
+    "direct_question": {
+      "text": "你继续追问：\"和我约会吗？\" 她的表情变得更加严肃，沉默了几秒后回答：\"不了，周末要去上补习班，抱歉没空。\" 说完就走开了，留下你一个人站在原地...",
+      "imagePrompt": "校园走廊，一个人独自站着看着另一个人离开的背影，阳光从窗户洒进来，孤独和失落的氛围",
+      "image": "img/ending_like.png",
+      "choices": [
+        { "text": "反思这次失败的尝试", "next": "reflect_on_rejection" },
+        { "text": "决定给她一些空间", "next": "give_space" }
+      ]
+    },
+
+    "reflect_on_rejection": {
+      "text": "你站在原地，反思着刚才发生的一切。也许你太急躁了，也许你的方式不够合适。但至少你尝试了，虽然结果不如人意...",
+      "imagePrompt": "一个人独自坐在校园的长椅上，表情沉思，夕阳西下，反思和成长的氛围",
+      "choices": [
+        { "text": "接受现实，继续生活", "next": "accept_reality" },
+        { "text": "等待未来的机会", "next": "patient_wait" }
+      ]
+    },
+
+    "give_space": {
+      "text": "你决定给她一些空间，不再主动打扰。也许时间会改变一切，也许不会，但你选择尊重她的决定...",
+      "imagePrompt": "校园场景，一个人远远地看着另一个人的身影，保持着距离，温柔而理解的氛围",
+      "choices": [
+        { "text": "专注于自己的成长", "next": "focus_on_self" },
+        { "text": "保持这种默默的关注", "next": "silent_care" }
+      ]
+    },
+
+    "accept_reality": {
+      "text": "你接受了这个现实。虽然被拒绝了，但你学会了如何面对失败。生活还要继续，你也会变得更加成熟。\n\n有时候，勇敢尝试本身就是一种成长，即使结果不如人意。\n\n💪 达成成就：勇敢面对",
+      "image": "img/ending_like.png",
+      "isEnding": true,
+      "achievement": "brave_facing"
+    },
+
+    "focus_on_self": {
+      "text": "你决定专注于自己的成长。这次的经历让你明白了很多道理：爱情需要合适的时机，需要相互的理解，不能强求。\n\n你开始更加努力地学习，培养自己的兴趣爱好，让自己变得更好。也许有一天，你会遇到那个真正适合的人。\n\n🌱 达成成就：自我成长",
+      "image": "img/night.png", 
+      "isEnding": true,
+      "achievement": "self_growth"
+    },
+
+    "silent_care": {
+      "text": "你选择了默默关注。虽然不能走近，但你还是会在远处关心着她的生活。这种单纯的关怀，也是一种美好的情感。\n\n你学会了爱的另一种形式：不占有，不强求，只是默默地祝福。\n\n💝 达成成就：默默关怀",
+      "image": "img/night.png",
+      "isEnding": true, 
+      "achievement": "silent_care"
+    },
+    
+    "persistent_approach": {
+      "text": "你们保持默契互相不再搭话。",
+      "imagePrompt": "校园走廊，两个人路过时冷漠地不说话，",
+      "choices": [
+        { "text": "意识到自己的问题，选择等待", "next": "patient_wait" },
+        { "text": "继续这种奇特的相处模式", "next": "create_encounter_after_misunderstanding" }
+      ]
+    },
+    
+   
+    
+    "create_encounter_after_misunderstanding": {
+      "text": "尽管你们之间存在着沟通的障碍，你还是想要制造一个偶然的相遇。你好想她，想多看看她。",
+      "imagePrompt": "校园巴士站，一个人戴着耳机等车，表情既期待又忐忑，夕阳西下，温暖的光线洒在身上",
+      "choices": [
+        { "text": "制造偶遇", "next": "ending_serendipity_after_misunderstanding" }
+      ]
+    },
+    
+    "ending_serendipity_after_misunderstanding": {
+      "text": "刚和她道了别，你戴上耳机，坐上校车，一圈又一圈。虽然你们之间有过那些让她困惑的对话，但你还是想要再次见到她。\n\n再次回到上车点刹车时，她停在路边等待的小小身影逐渐放大，而后被人群簇拥着走上校车。\n\n人潮拥挤，她如电影般巧合地坐在离你一个座位的同排，中间隔着过道。\n\n鬼使神差地，你们侧身越过人群对视。她认出了你，露出了不解的表情，随即低头漫不经心地玩手机；你侧过头看向窗外，倒影是她的漫不经心。\n\n这一刻，语言不再重要，她的香气钻入你的鼻尖，恰逢雨滴打在窗户上绽放像烟火。\n\n🌸 达成成就：守株待兔",
+      "image": "img/rabbit.png",
+      "isEnding": true,
+      "achievement": "serendipity"
+    },
+    
+    "patient_wait": {
+      "text": "你选择了耐心等待。独处时，欢快气氛不再，你们和谁都笑着说话，唯独面对对方沉默...",
+      "imagePrompt": "两个人在人群中和别人谈笑风生，但彼此相见时却沉默不语，对比强烈的画面，夏日炎热但心情冰冷的感觉",
+      "choices": [
+        { "text": "继续这种安静的等待", "next": "ending_waiting" }
+      ]
+    },
+    
+    "create_encounter": {
+      "text": "你决定制造偶然相遇的机会。刚和TA道了别，你戴上耳机，坐上校车，一圈又一圈...",
+      "imagePrompt": "校车内部，一个人戴着耳机独自坐着，透过窗户看外面的风景一圈圈重复，期待的神情，青春校园的浪漫氛围",
+      "choices": [
+        { "text": "等待那个美好的瞬间", "next": "ending_serendipity" }
+      ]
+    },
+    
+    "losing_control": {
+      "text": "你意识到自己对TA的'单纯主动的好奇'转变为'被动的过度关注'。探索欲不重要了，一切都不重要了...",
+      "imagePrompt": "一个人独自坐在房间里，手抓着头发，表情痛苦而纠结，周围散落着书本和纸张，混乱的内心状态，阴暗的氛围",
+      "choices": [
+        { "text": "面对情感失控的自己", "next": "ending_too_late" }
+      ]
+    },
+    
+    "ambiguous_relationship": {
+      "text": "时间过去了很久，你忍不住翻看当初和TA暧昧的聊天记录...",
+      "imagePrompt": "一个人在深夜翻看手机中的聊天记录，屏幕光照亮脸庞，表情复杂，周围是安静的夜晚，回忆与现实交织的氛围",
+      "image": "img/night.png",
+      "choices": [
+        { "text": "审视这段关系的真相", "next": "ending_moon_insight" }
+      ]
+    },
+    
+    "awkward_explanation": {
+      "text": "你试图解释自己的奇怪行为，但越解释越奇怪。TA开始用奇怪的眼光看你...",
+      "imagePrompt": "两个人在走廊里，一个人在尴尬地解释什么，另一个人用疑惑和不解的眼神看着，尴尬的氛围，校园背景",
+      "image": "img/ending_like.png",
+      "choices": [
+        { "text": "面对被误解的痛苦", "next": "ending_mockery" }
+      ]
+    },
+    
+    "ending_confession": {
+      "text": "\n\n两秒的沉默后，你说出了那四个字。\n你确认她听见了。\n她的笑停止了，换作她沉默了。\n\n🎉 达成成就：我喜欢你",
+      "image": "img/ending_like.png",
+      "isEnding": true,
+      "achievement": "confession"
+    },
+    
+    "ending_serendipity": {
+      "text": "刚和她道了别，你戴上耳机，坐上校车，一圈又一圈。\n\n再次回到上车点刹车时，她停在路边等待的小小身影逐渐放大，而后被人群簇拥着走上校车。\n\n人潮拥挤，她如电影般巧合地坐在离你一个座位的同排，中间隔着过道。\n\n鬼使神差地，你们侧身越过人群对视。她认出了你，露出了不解的表情，随即低头漫不经心地玩手机；你侧过头看向窗外，倒影是她的漫不经心。\n\n她的香气钻入你的鼻尖，恰逢雨滴打在窗户上绽放像烟火。\n\n🌸 达成成就：守株待兔",
+      "image": "img/守株待兔.png",
+      "isEnding": true,
+      "achievement": "serendipity"
+    },
+    
+    "ending_waiting": {
+      "text": "独处时，欢快气氛不再，七八月炎夏空气结冰，风声雨声抽真空。\n\n我们和谁都笑着说话，唯独面对对方沉默。并不认可这个随意说爱像客服的时代，因此我久久地注视着你，一言不发。\n\n你呢，脑海里精彩纷呈的世界曾经、现在、将来，会出现我吗。\n\n我能安静地倾听你，自然也能安静地等待，或是安静地不再打扰。我会随时待机响应或永远消失，如果这是你想要的话。\n\n⏰ 达成成就：等待",
+      "image": "img/等待.png",
+      "isEnding": true,
+      "achievement": "patient_love"
+    },
+    
+    "ending_too_late": {
+      "text": "【日记】\n\n意识到自己对你\"单纯主动的好奇\"转变为\"被动的过度关注\"时，探索欲不重要了，欺负欲不重要了，吐槽欲、毒舌欲、辩论欲全部都不重要得可怕。\n\n此时，我才发现并确认自己对你升起了其它浓郁的情绪，难以分辨，无法湮灭，为时已晚。\n\n然后，对于情绪失控的不安愈发强烈直至发酵。厌恶自己想和你越过人群对视的冲动，辱骂自己一边期待一边又找寻你香气的行为，逼迫自己不要和你走得太近，又忍不住并后悔走得太近，滑向对你刻意的冷暴力作为愧疚代偿。\n\n真想一枪崩了这个被你吸引住的，低贱的，廉价的，卑鄙的，侵略性强的，敏感多虑的，不够从容的自己。\n\n💔 达成成就：为时已晚",
+      "image": "img/为时已晚.png",
+      "isEnding": true,
+      "achievement": "too_late"
+    },
+    
+    "ending_moon_insight": {
+      "text": "她离开后已经记不清多久，久到已经忘记了她的轮廓。\n\n你忍不住翻看当初和她暧昧的聊天记录，冷静又惊讶地发现暧昧的话语都由你发出，她只是一直在最低限度地礼貌回应，没有任何越界的言语。\n\n没有施舍又收回的好感、\n没有值得你留恋回味的情愫流转、\n没有对你的愤怒和憎恶、\n没有明月高悬，独不照你。\n\n原来明月曾静静地酮在每一寸土地上。\n\n🌙 达成成就：明月高悬，不独照我",
+      "image": "img/night.png",
+      "isEnding": true,
+      "achievement": "moon_insight"
+    },
+    
+    "ending_mockery": {
+      "text": "\"你今天穿的颜色好像和我昨天一样，是在模仿我吗？\"\n\n\"怎么可能，太把自己当回事了吧。\"\n\n一一以对自己几轮掺杂厌恶的嘲笑结束这个事件，如此反复。\n\n😔 达成成就：厌恶",
+      "image": "img/厌恶.jpg",
+      "isEnding": true,
+      "achievement": "mockery_pain"
+    }
+  }
+}

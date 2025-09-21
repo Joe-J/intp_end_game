@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "title": "瓶子攻略女同学的不归路 - 故事连接图",
+    "created": "2025-09-21",
+    "updated": "2025-09-21",
+    "total_scenes": 30,
+    "ending_scenes": 10,
+    "broken_connections": 0,
+    "orphaned_scenes": 0,
+    "status": "全部连接正常"
+  },
+  "connections": {
+    "start": [
+      "approach",
+      "observe",
+      "distance"
+    ],
+    "approach": [
+      "ask_help",
+      "do_it_on_your_own",
+      "hesitate"
+    ],
+    "observe": [
+      "patient_wait",
+      "create_encounter",
+      "losing_control"
+    ],
+    "distance": [
+      "ambiguous_relationship"
+    ],
+    "ask_help": [
+      "ending_confession"
+    ],
+    "do_it_on_your_own": [
+      "patient_wait",
+      "sudden_question"
+    ],
+    "hesitate": [
+      "awkward_explanation",
+      "awkward_humor"
+    ],
+    "awkward_humor": [
+      "persistent_approach",
+      "sudden_question"
+    ],
+    "sudden_question": [
+      "continue_asking"
+    ],
+    "continue_asking": [
+      "direct_question"
+    ],
+    "direct_question": [
+      "reflect_on_rejection",
+      "give_space"
+    ],
+    "reflect_on_rejection": [
+      "accept_reality",
+      "patient_wait"
+    ],
+    "give_space": [
+      "focus_on_self",
+      "silent_care"
+    ],
+    "accept_reality": [],
+    "focus_on_self": [],
+    "silent_care": [],
+    "persistent_approach": [
+      "patient_wait",
+      "create_encounter_after_misunderstanding"
+    ],
+    "create_encounter_after_misunderstanding": [
+      "ending_serendipity_after_misunderstanding"
+    ],
+    "ending_serendipity_after_misunderstanding": [],
+    "patient_wait": [
+      "ending_waiting"
+    ],
+    "create_encounter": [
+      "ending_serendipity"
+    ],
+    "losing_control": [
+      "ending_too_late"
+    ],
+    "ambiguous_relationship": [
+      "ending_moon_insight"
+    ],
+    "awkward_explanation": [
+      "ending_mockery"
+    ],
+    "ending_confession": [],
+    "ending_serendipity": [],
+    "ending_waiting": [],
+    "ending_too_late": [],
+    "ending_moon_insight": [],
+    "ending_mockery": []
+  },
+  "ending_scenes": [
+    "accept_reality",
+    "focus_on_self",
+    "silent_care",
+    "ending_serendipity_after_misunderstanding",
+    "ending_confession",
+    "ending_serendipity",
+    "ending_waiting",
+    "ending_too_late",
+    "ending_moon_insight",
+    "ending_mockery"
+  ],
+  "broken_connections": {},
+  "orphaned_scenes": [],
+  "scene_types": {
+    "start_scene": [
+      "start"
+    ],
+    "branch_scenes": [
+      "approach",
+      "observe",
+      "do_it_on_your_own",
+      "hesitate",
+      "awkward_humor",
+      "direct_question",
+      "reflect_on_rejection",
+      "give_space",
+      "persistent_approach"
+    ],
+    "transition_scenes": [
+      "distance",
+      "ask_help",
+      "sudden_question",
+      "continue_asking",
+      "create_encounter_after_misunderstanding",
+      "patient_wait",
+      "create_encounter",
+      "losing_control",
+      "ambiguous_relationship",
+      "awkward_explanation"
+    ],
+    "ending_scenes": [
+      "accept_reality",
+      "focus_on_self",
+      "silent_care",
+      "ending_serendipity_after_misunderstanding",
+      "ending_confession",
+      "ending_serendipity",
+      "ending_waiting",
+      "ending_too_late",
+      "ending_moon_insight",
+      "ending_mockery"
+    ]
+  },
+  "popular_destinations": {
+    "patient_wait": {
+      "incoming_count": 4,
+      "sources": [
+        "observe",
+        "do_it_on_your_own",
+        "reflect_on_rejection",
+        "persistent_approach"
+      ]
+    },
+    "sudden_question": {
+      "incoming_count": 2,
+      "sources": [
+        "do_it_on_your_own",
+        "awkward_humor"
+      ]
+    }
+  },
+  "story_paths": {
+    "direct_confession": [
+      "start",
+      "approach",
+      "ask_help",
+      "ending_confession"
+    ],
+    "patient_waiting": [
+      "start",
+      "observe",
+      "patient_wait",
+      "ending_waiting"
+    ],
+    "serendipity": [
+      "start",
+      "observe",
+      "create_encounter",
+      "ending_serendipity"
+    ],
+    "emotional_breakdown": [
+      "start",
+      "observe",
+      "losing_control",
+      "ending_too_late"
+    ],
+    "ambiguous_insight": [
+      "start",
+      "distance",
+      "ambiguous_relationship",
+      "ending_moon_insight"
+    ]
+  },
+  "statistics": {
+    "total_connections": 33,
+    "average_connections_per_scene": 1.1,
+    "max_references": 4,
+    "scenes_with_multiple_references": 2
+  }
+}

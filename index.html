@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瓶子姐攻略女同学的不归路 - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-container {
+            max-width: 800px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .game-header {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .game-content {
+            padding: 30px;
+            min-height: 400px;
+        }
+
+        .story-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-text {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        .choices {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .choice-button {
+            padding: 15px 25px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+        }
+
+        .choice-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        .achievement {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .achievement h3 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .restart-button {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .restart-button:hover {
+            transform: scale(1.05);
+        }
+
+        .achievements-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+        }
+
+        .achievement-item {
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .unlocked {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .locked {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @media (max-width: 600px) {
+            .game-container {
+                width: 95%;
+                margin: 10px;
+            }
+            
+            .achievements-panel {
+                position: static;
+                margin: 20px auto;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>💕 intp木头人 💕</h1>
+            <p>你的每个选择都将决定故事的走向...</p>
+        </div>
+        <div class="game-content" id="gameContent">
+            <!-- 游戏内容将通过JavaScript动态生成 -->
+        </div>
+    </div>
+
+    <div class="achievements-panel">
+        <h4>🏆 成就系统</h4>
+        <div id="achievementsList">
+            <!-- 成就列表将通过JavaScript动态生成 -->
+        </div>
+    </div>
+
+    <script>
+        // 游戏状态管理
+        class GameState {
+            constructor() {
+                this.currentScene = 'start';
+                this.achievements = {
+                    brave_heart: false,
+                    painful_lesson: false,
+                    time_passes: false,
+                    precious_friendship: false,
+                    completionist: false
+                };
+                this.unlockedEndings = new Set();
+                this.loadAchievements();
+            }
+
+            saveAchievements() {
+                localStorage.setItem('gameAchievements', JSON.stringify(this.achievements));
+                localStorage.setItem('unlockedEndings', JSON.stringify([...this.unlockedEndings]));
+            }
+
+            loadAchievements() {
+                const saved = localStorage.getItem('gameAchievements');
+                const endings = localStorage.getItem('unlockedEndings');
+                if (saved) {
+                    this.achievements = JSON.parse(saved);
+                }
+                if (endings) {
+                    this.unlockedEndings = new Set(JSON.parse(endings));
+                }
+            }
+
+            unlockAchievement(id) {
+                if (!this.achievements[id]) {
+                    this.achievements[id] = true;
+                    this.saveAchievements();
+                    this.showAchievementNotification(id);
+                }
+            }
+
+            showAchievementNotification(id) {
+                const achievements = {
+                    brave_heart: { name: '勇敢之心', desc: '勇敢表达了自己的感情' },
+                    painful_lesson: { name: '痛苦教训', desc: '经历了被拒绝的痛苦但学会成长' },
+                    time_passes: { name: '时光荏苒', desc: '错过了机会但获得了人生感悟' },
+                    precious_friendship: { name: '珍贵友谊', desc: '选择了保持珍贵的友谊' },
+                    completionist: { name: '完美主义者', desc: '解锁了所有可能的结局' }
+                };
+
+                const achievement = achievements[id];
+                if (achievement) {
+                    // 这里可以添加更炫酷的通知效果
+                    setTimeout(() => {
+                        alert(`🎉 获得成就: ${achievement.name}\n${achievement.desc}`);
+                    }, 500);
+                }
+            }
+
+            checkCompletionist() {
+                if (this.unlockedEndings.size >= 4 && !this.achievements.completionist) {
+                    this.unlockAchievement('completionist');
+                }
+            }
+        }
+
+        // 游戏配置数据
+        let gameConfig = null;
+        let scenes = {};
+        let achievementData = {};
+
+        // 加载游戏配置
+        async function loadGameConfig() {
+            try {
+                const response = await fetch('story_config.json');
+                gameConfig = await response.json();
+                scenes = gameConfig.scenes;
+                achievementData = gameConfig.achievements;
+                
+                // 更新页面标题
+                document.querySelector('.game-header h1').textContent = gameConfig.gameTitle;
+                document.querySelector('.game-header p').textContent = gameConfig.gameSubtitle;
+                
+                return true;
+            } catch (error) {
+                console.error('加载故事配置失败:', error);
+                // 如果加载失败，使用默认配置
+                loadDefaultConfig();
+                return false;
+            }
+        }
+
+        // 默认配置（备用）
+        function loadDefaultConfig() {
+            scenes = {
+                start: {
+                    text: '游戏配置加载失败，请检查 story_config.json 文件是否存在。',
+                    choices: [
+                        { text: '重新加载', next: 'reload' }
+                    ]
+                },
+                reload: {
+                    text: '请刷新页面重新加载游戏配置。',
+                    choices: []
+                }
+            };
+            achievementData = {};
+        }
+
+        // 游戏实例
+        const game = new GameState();
+
+        // 渲染游戏场景
+        function renderScene(sceneId) {
+            const scene = scenes[sceneId];
+            if (!scene) {
+                console.error('场景不存在:', sceneId);
+                return;
+            }
+            
+            const gameContent = document.getElementById('gameContent');
+            
+            let html = '';
+            
+            // 如果有图像路径，显示实际图像
+            if (scene.image) {
+                html += `<img src="${scene.image}" alt="故事场景图" class="story-image" onerror="this.style.display='none'">`;
+            }
+            
+            html += `<div class="story-text">${scene.text}</div>`;
+            
+            // 如果有图像提示但没有实际图像，显示为开发者信息
+            if (scene.imagePrompt && !scene.image) {
+                html += `
+                    <div style="background: #f0f8ff; border: 1px solid #b0d4f1; border-radius: 5px; padding: 10px; margin: 15px 0; font-size: 12px; color: #2c5282;">
+                        <strong>🎨 图像生成提示：</strong><br>
+                        ${scene.imagePrompt}
+                    </div>
+                `;
+            }
+
+            if (scene.isEnding) {
+                // 结局场景
+                html += `
+                    <div class="achievement">
+                        <h3>🎊 游戏结束 🎊</h3>
+                        <p>感谢游玩！</p>
+                    </div>
+                    <button class="restart-button" onclick="restartGame()">重新开始</button>
+                `;
+                
+                // 解锁成就
+                if (scene.achievement) {
+                    game.unlockAchievement(scene.achievement);
+                    game.unlockedEndings.add(sceneId);
+                    game.saveAchievements();
+                    game.checkCompletionist();
+                }
+            } else {
+                // 选择场景
+                html += '<div class="choices">';
+                scene.choices.forEach(choice => {
+                    html += `<button class="choice-button" onclick="makeChoice('${choice.next}')">${choice.text}</button>`;
+                });
+                html += '</div>';
+            }
+
+            gameContent.innerHTML = html;
+            updateAchievementsDisplay();
+        }
+
+        // 做出选择
+        function makeChoice(nextScene) {
+            game.currentScene = nextScene;
+            renderScene(nextScene);
+        }
+
+        // 重新开始游戏
+        function restartGame() {
+            game.currentScene = 'start';
+            renderScene('start');
+        }
+
+        // 更新成就显示
+        function updateAchievementsDisplay() {
+            const achievementsList = document.getElementById('achievementsList');
+            
+            if (!achievementData || Object.keys(achievementData).length === 0) {
+                achievementsList.innerHTML = '<div class="achievement-item locked">🔒 加载中...</div>';
+                return;
+            }
+
+            let html = '';
+            for (const [key, achievement] of Object.entries(achievementData)) {
+                const unlocked = game.achievements[achievement.id];
+                html += `<div class="achievement-item ${unlocked ? 'unlocked' : 'locked'}">
+                    ${unlocked ? achievement.icon : '🔒'} ${achievement.name}
+                </div>`;
+            }
+            achievementsList.innerHTML = html;
+        }
+
+        // 初始化游戏
+        async function initGame() {
+            // 显示加载状态
+            document.getElementById('gameContent').innerHTML = '<div style="text-align: center; padding: 50px;">🔄 正在加载游戏...</div>';
+            
+            // 加载游戏配置
+            const loaded = await loadGameConfig();
+            
+            if (loaded) {
+                // 配置加载成功，开始游戏
+                renderScene(game.currentScene);
+            } else {
+                // 配置加载失败，显示错误信息
+                renderScene('start');
+            }
+        }
+
+        // 页面加载完成后初始化游戏
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+</html>
